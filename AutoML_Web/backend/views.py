@@ -142,6 +142,7 @@ class AutoML(APIView):
         # 这里假设每条记录是字典形式，query结果是列表
         # [{},{},{}]
         rec = []
+        updata_user_algorithm(user,user.id)
         updata_jobtable(user.tocken, user, user.first_name)
         queryset = models.User_Job.objects.all()
         print(queryset)
