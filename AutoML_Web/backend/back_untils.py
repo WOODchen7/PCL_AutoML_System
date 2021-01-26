@@ -83,3 +83,19 @@ def alg_cp(source,target):
     shutil.copytree(source_path, target_path)
 
     print('$$$$$$$$$$$$$$$$$Copy files finished!')
+
+def alg_creat(user,id,alg_name,alg_task,alg_path,hyprtp_p):
+    uid = id
+    localtime = time.asctime(time.localtime(time.time()))
+
+    ualg = models.User_algorithm.objects.create(algorithm_id=0, user_id=uid, name=alg_name, task=alg_task,
+                                               _path=alg_path,created_at=localtime,hyperp_path=hyprtp_p)
+    ualg.save()
+
+def hyperp_save():
+    dir = "../../../user_hyperp"
+    if not os.path.exists("../../../user_hyperp"):
+        os.makedirs("../../../user_hyperp", mode=0o777)
+
+
+    pass
